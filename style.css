@@ -67,6 +67,10 @@ body {
   cursor: pointer;
 }
 
+.form-body-item:first-child button {
+  width: 30%;
+}
+
 @media only screen and (max-width: 600px) {
   * {
     font-size: 80%;

@@ -3,6 +3,10 @@ const result = document.querySelector('.result');
 const degreeInput = document.querySelector('#degree');
 const minutesInput = document.querySelector('#minutes');
 const secondsInput = document.querySelector('#seconds');
+const add = document.querySelector('#add');
+const sub = document.querySelector('#sub');
+
+let isAdd = false;
 
 function handleSubmit(e) {
   e.preventDefault();
@@ -11,12 +15,19 @@ function handleSubmit(e) {
   const secondsInputValue = secondsInput.value;
 
   let formulaResult;
-
-  formulaResult =
-    360 -
-    (Number(degreeInputValue) +
-      +(Number(minutesInputValue) / 60).toFixed(2) +
-      +(Number(secondsInputValue) / 3600).toFixed(4));
+  if (!isAdd) {
+    formulaResult =
+      360 -
+      (Number(degreeInputValue) +
+        +(Number(minutesInputValue) / 60).toFixed(2) +
+        +(Number(secondsInputValue) / 3600).toFixed(4));
+  } else {
+    formulaResult =
+      360 +
+      (Number(degreeInputValue) +
+        +(Number(minutesInputValue) / 60).toFixed(2) +
+        +(Number(secondsInputValue) / 3600).toFixed(4));
+  }
 
   const resultDegree = Math.floor(formulaResult);
   const remainderDegree = formulaResult - Math.floor(formulaResult);
@@ -38,3 +49,12 @@ function handleSubmit(e) {
 }
 
 submit.addEventListener('click', handleSubmit);
+add.addEventListener('click', (e) => {
+  e.preventDefault();
+  isAdd = true;
+  console.log(isAdd);
+});
+sub.addEventListener('click', (e) => {
+  e.preventDefault();
+  isAdd = false;
+});
