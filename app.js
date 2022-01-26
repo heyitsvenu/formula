@@ -56,9 +56,9 @@ function handleSubSubmit(e) {
   const remainderMinutes = resultMinutes - Math.floor(resultMinutes);
   const resultSeconds = remainderMinutes.toFixed(3) * 60;
 
-  const finalResult = `Result : ${resultDegree}&deg; + ${Math.floor(
+  const finalResult = `${resultDegree}&deg; + ${Math.floor(
     resultMinutes
-  )}' + ${resultSeconds}"`;
+  )}' + ${resultSeconds.toFixed(2)}"`;
 
   console.log(finalResult);
 
