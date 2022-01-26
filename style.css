@@ -65,9 +65,6 @@ body {
 
 .form-body-item button {
   cursor: pointer;
-}
-
-.form-body-item:first-child button {
   width: 30%;
 }
 
